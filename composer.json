@@ -3,7 +3,7 @@
     "description": "EasyCredit API",
     "keywords": ["easycredit", "payment"],
     "type": "library",
-    "licence": "Apache-2.0",
+    "license": "Apache-2.0",
     "homepage": "https://www.easycredit.de/",
     "authors": [
       {
