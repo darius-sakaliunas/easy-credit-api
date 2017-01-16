@@ -19,10 +19,5 @@
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
-    },
-    "autoload": {
-        "psr-0": {
-            "EasyCredit": "src/"
-        }
     }
 }
