@@ -137,8 +137,7 @@ class Request
      */
     public function doRequest($request)
     {
-        $method = strtolower($request->getMethod());
-
+        $method = strtolower($request->getMethod());        
         $response = $this->$method($request->getPath(), $request->getParameters(), $request->getBody(),
             $request->getHeaders());
 

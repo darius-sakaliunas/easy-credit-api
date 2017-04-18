@@ -96,6 +96,13 @@ class ProcessInitialize extends AbstractObject
      * @transferClass EasyCredit\Transfer\CartInfoCollection
      */
     protected $cartInfos;
+    
+    /**
+     * @var RuecksprungAdressen
+     * @apiName       ruecksprungadressen
+     * @transferClass EasyCredit\Transfer\Ruecksprungadressen
+     */
+    protected $ruecksprungAdressen;
 
     /**
      * @return string
@@ -304,5 +311,21 @@ class ProcessInitialize extends AbstractObject
     public function setCartInfos($cartInfos)
     {
         $this->cartInfos = $cartInfos;
+    }
+
+    /**
+     * @return RuecksprungAdressen
+     */
+    public function getRuecksprungAdressen()
+    {
+        return $this->ruecksprungAdressen;
+    }
+
+    /**
+     * @param RuecksprungAdressen $ruecksprungAdressen
+     */
+    public function setRuecksprungAdressen($ruecksprungAdressen)
+    {
+        $this->ruecksprungAdressen = $ruecksprungAdressen;
     }
 }

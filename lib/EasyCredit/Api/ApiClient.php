@@ -7,6 +7,7 @@ use EasyCredit\Api\Request\Calculation\PlanGet;
 use EasyCredit\Api\Request\Calculation\PlanGetBest;
 use EasyCredit\Api\Request\Process\Agree;
 use EasyCredit\Api\Request\Process\Decide;
+use EasyCredit\Api\Request\Process\Decision;
 use EasyCredit\Api\Request\Process\Get;
 use EasyCredit\Api\Request\Process\GetFinancingDetails;
 use EasyCredit\Api\Request\Process\GetPersonDetail;
@@ -103,7 +104,7 @@ class ApiClient
         $requestType = new PlanGetBest($this->shopId, $amount);
 
         $response = $this->request->doRequest($requestType);
-
+        
         return $this->dataMapper->mapResponse($requestType->getTransferClass(), $response->getBody());
     }
 
@@ -116,9 +117,8 @@ class ApiClient
     public function init(ProcessInitialize $processInitialize)
     {
         $requestType = new Initialize($this->shopId, $this->shopToken, $processInitialize, $this->dataMapper);
-
         $response = $this->request->doRequest($requestType);
-
+        
         return $this->dataMapper->mapResponse($requestType->getTransferClass(), $response->getBody());
     }
 
@@ -159,6 +159,20 @@ class ApiClient
     public function decide($tbProcessIdentifier)
     {
         $requestType = new Decide($this->shopId, $this->shopToken, $tbProcessIdentifier);
+
+        $response = $this->request->doRequest($requestType);
+
+        return $this->dataMapper->mapResponse($requestType->getTransferClass(), $response->getBody());
+    }
+
+    /**
+     * @param string $tbProcessIdentifier
+     *
+     * @return DecisionResponse
+     */
+    public function decision($tbProcessIdentifier)
+    {
+        $requestType = new Decision($this->shopId, $this->shopToken, $tbProcessIdentifier);
 
         $response = $this->request->doRequest($requestType);
 
